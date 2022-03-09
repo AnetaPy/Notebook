@@ -3,38 +3,21 @@ import AddNote from "./AddNote";
 import NoteList from "./NoteList";
 
 import "./App.css";
+import { NotesContext } from "./context/Context";
 
 class App extends Component {
+  static contextType = NotesContext;
   counterId = 5;
   state = {
-    notes: [
-      {
-        id: 0,
-        text: "blle blee bleeeeeeeee",
-        date: 1622081410222,
-      },
-      {
-        id: 1,
-        text: "aaaaaaaaaa",
-        date: 1649081621111,
-      },
-      {
-        id: 2,
-        text: "bbbbbbbbbb",
-        date: 1606681628356,
-      },
-      {
-        id: 3,
-        text: "ccccccccccccc",
-        date: 1646681628250,
-      },
-      {
-        id: 4,
-        text: "dddddddddddd",
-        date: 1646680628256,
-      },
-    ],
+    notes: this.context,
   };
+
+  // componentDidMount() {
+  //   this.setState({
+  //     notes: JSON.parse(localStorage.getItem("notes")),
+  //   });
+  //   // localStorage.setItem("notes", JSON.stringify(this.state.notes));
+  // }
 
   deleteNote = (id) => {
     let notes = [...this.state.notes];
@@ -46,20 +29,27 @@ class App extends Component {
 
   addNote = (text, date) => {
     if (text === "") return alert("Enter the content.");
-
+    const notes = [...this.state.notes];
     const note = {
       id: this.counterId,
       text,
       date,
     };
+    notes.push(note);
     this.counterId++;
-    this.setState((prevState) => ({
-      notes: [...prevState.notes, note],
-    }));
+    this.setState({
+      notes,
+    });
+    // localStorage.setItem("notes", JSON.stringify(this.state.notes));
     return true;
   };
 
+  // actualisationForm = () => {
+  //   localStorage.setItem("notes", JSON.stringify(this.state.notes));
+  // };
+
   render() {
+    console.log(this.context);
     return (
       <div>
         <AddNote add={this.addNote} />

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./AddNote.css";
+import ReactMarkdown from "react-markdown";
 
 class AddNote extends Component {
   state = {
@@ -16,6 +17,7 @@ class AddNote extends Component {
 
   cleanForm = () => {
     const { text, date } = this.state;
+
     const add = this.props.add(text, date);
     if (add) {
       this.setState({
@@ -34,6 +36,7 @@ class AddNote extends Component {
           value={this.state.text}
           onChange={this.handleText}
         />
+        <ReactMarkdown>*React-Markdown* is **Awesome**</ReactMarkdown>
         <button onClick={this.cleanForm}>Add note</button>
       </div>
     );

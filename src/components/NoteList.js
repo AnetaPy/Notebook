@@ -2,12 +2,12 @@ import React from "react";
 import Note from "./Note";
 
 const NoteList = (props) => {
-  const notes = props.notes.map((note) => (
+  console.log(props.notes);
+  const sortedNotes = props.notes.sort((a, b) => b.date - a.date);
+  const notes = sortedNotes.map((note) => (
     <Note key={note.id} note={note} delete={props.delete} />
   ));
-  // Sort
-  // notes.sort((a, b) => b.date - a.date);
-  // console.log(props.date);
+  console.log(notes);
   return (
     <>
       <div className="noteList">
