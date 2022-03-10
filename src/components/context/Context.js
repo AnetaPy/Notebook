@@ -1,9 +1,10 @@
-import React, { createContext, Component } from "react";
+import React, { useState } from "react";
 
-export const NotesContext = createContext();
+export const AppContext = React.createContext(null);
 
-class NotesContextProvider extends Component {
-  state = {
+const ContextWrapper = (props) => {
+  let counterId = 5;
+  const [state, setState] = useState({
     notes: [
       {
         id: 0,
@@ -31,18 +32,53 @@ class NotesContextProvider extends Component {
         date: 1646680628256,
       },
     ],
-  };
+  });
 
-  callbackFunction = (childData) => {
-    this.setState({ message: childData });
-  };
-  render() {
-    return (
-      <NotesContext.Provider value={this.state.notes}>
-        {this.props.children}
-      </NotesContext.Provider>
-    );
-  }
-}
+  const [actions, setActions] = useState({
+    addNote: (text, date) => {
+      if (text === "") return alert("Enter the content.");
+      const note = {
+        id: counterId,
+        text,
+        date,
+      };
+      counterId++;
+      setState((prevState) => ({
+        notes: [...prevState.notes, note],
+      }));
+      return true;
+    },
+    deleteNote: (id) => {
+      let notes = [...state.notes];
+      notes = notes.filter((note) => note.id !== id);
+      setState({
+        notes,
+      });
+    },
+    findId: (id) => {
+      console.log(id);
+      // let notes = [...state.notes];
+      const note = state.notes.filter((note) => note.id === id);
+      console.log(note);
 
-export default NotesContextProvider;
+      // setState({
+      //   singleNoteID: note[0].id,
+      //   singleNoteText: note[0].text,
+      //   singleNoteDate: note[0].date,
+      //   // });
+      // console.log(store);
+      // console.log(note[0].id);
+      // console.log(note[0].text);
+      // console.log(note[0].date);
+      //   });
+    },
+  });
+
+  return (
+    <AppContext.Provider value={{ state, actions }}>
+      {props.children}
+    </AppContext.Provider>
+  );
+};
+
+export default ContextWrapper;

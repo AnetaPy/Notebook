@@ -1,0 +1,16 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+header {
+  background-color: rgb(210, 238, 218);
+}
+
+header h1 {
+  padding: 15px;
+  font-weight: normal;
+  font-family: Arial;
+  height: 50px;
+  font-size: 20px;
+}

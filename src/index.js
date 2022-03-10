@@ -3,7 +3,8 @@ import ReactDOM from "react-dom";
 import App from "./components/App";
 import SingleNote from "./components/SingleNote";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
-import NotesContextProvider from "./components/context/Context.js";
+import ContextWrapper from "./components/context/Context.js";
+import "./index.css";
 
 function Router() {
   return (
@@ -20,12 +21,12 @@ function Router() {
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <NotesContextProvider>
+      <ContextWrapper>
         <Routes>
           <Route path="/" element={<Router />} />
           <Route path="/note" element={<SingleNote />} />
         </Routes>
-      </NotesContextProvider>
+      </ContextWrapper>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")

@@ -1,0 +1,67 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.singleNote {
+  height: 600px;
+  background-color: rgb(229, 243, 233);
+}
+
+.singleNote header {
+  background-color: rgb(210, 238, 218);
+}
+
+.singleNote header h1 {
+  padding: 15px;
+  font-weight: normal;
+  font-family: Arial;
+  height: 50px;
+  font-size: 20px;
+}
+
+.singleNote a button {
+  margin: 30px 0 20px 0;
+  height: 40px;
+  padding: 10px 20px;
+  font-size: 14px;
+  color: white;
+  background-color: rgb(94, 148, 127);
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.singleNote a button.back {
+  margin-left: calc(((100vw - 900px) / 2) + 30px);
+}
+
+.singleNote a button.delete {
+  margin-left: calc(900px - 30px - 92px - 150px);
+}
+
+.singleNote .contentSingleNote {
+  position: relative;
+  padding: 20px;
+  margin: 20px auto;
+  background-color: rgb(210, 238, 218);
+  width: 900px;
+  min-height: 250px;
+  font-size: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.singleNote .contentSingleNote .text {
+  display: block;
+  width: 860px;
+  word-wrap: break-word;
+}
+
+.singleNote .contentSingleNote .date {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+}
