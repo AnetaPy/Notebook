@@ -3,7 +3,6 @@ import { NavLink } from "react-router-dom";
 
 const Note = (props) => {
   const { id, text, date } = props.note;
-  // console.log(props.note);
   const leadingZero = (value) => (value < 10 && value > -1 ? "0" : "") + value;
   const actualDate = `${leadingZero(
     new Date(date).getMonth() + 1

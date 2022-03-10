@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 export const AppContext = React.createContext(null);
 
 const ContextWrapper = (props) => {
   // const navigate = useNavigate();
-  let counterId = 5;
+  // let counterId = 5;
   const [state, setState] = useState({
     notes: [
       {
@@ -36,51 +36,12 @@ const ContextWrapper = (props) => {
     ],
   });
   const [store, setStore] = useState({
-    sNID: "",
-    sNText: "",
-    sNDate: "",
+    noteId: "",
+    noteText: "",
+    noteDate: "",
   });
-  const [actions, setActions] = useState({
-    addNote: (text, date) => {
-      if (text === "") return alert("Enter the content.");
-      const note = {
-        id: counterId,
-        text,
-        date,
-      };
-      counterId++;
-      setState((prevState) => ({
-        notes: [...prevState.notes, note],
-      }));
-      return true;
-    },
-    deleteNote: (id) => {
-      let notes = [...state.notes];
-      notes = notes.filter((note) => note.id !== id);
-      // console.log("ggdbghbcsdhcb");
-      setState({
-        notes,
-      });
-    },
-
-    handleClick: (id) => {
-      // console.log(id);
-      const note = state.notes.filter((note) => note.id === id);
-      // console.log(note);
-      setStore({
-        sNId: note[0].id,
-        sNText: note[0].text,
-        sNDate: note[0].date,
-      });
-      // const location = {
-      //   pathname: `note/${id}`,
-      // };
-      // navigate.push(location);
-    },
-  });
-
   return (
-    <AppContext.Provider value={{ state, store, actions }}>
+    <AppContext.Provider value={{ state, store, setState, setStore }}>
       {props.children}
     </AppContext.Provider>
   );

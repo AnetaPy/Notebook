@@ -3,7 +3,6 @@ import Note from "./Note";
 import "./style/NoteList.css";
 
 const NoteList = (props) => {
-  // console.log(props.notes);
   const sortedNotes = props.notes.state.notes.sort((a, b) => b.date - a.date);
   const notes = sortedNotes.map((note) => (
     <Note
@@ -13,8 +12,6 @@ const NoteList = (props) => {
       handle={props.handle}
     />
   ));
-  // console.log(sortedNotes);
-  // console.log(notes);
   return (
     <>
       <div className="noteList">
