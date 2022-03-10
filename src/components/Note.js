@@ -13,7 +13,7 @@ const Note = (props) => {
     <div className="containerNote">
       <div className="content">
         <p className="text">{text}</p>
-        <NavLink to="/note" className="date" onClick={() => props.find(id)}>
+        <NavLink to="/note" className="date" onClick={() => props.handle(id)}>
           {actualDate}{" "}
         </NavLink>
       </div>

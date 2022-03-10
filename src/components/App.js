@@ -1,8 +1,6 @@
 import React, { useContext } from "react";
 import AddNote from "./AddNote";
 import NoteList from "./NoteList";
-
-import "./App.css";
 import { AppContext } from "./context/Context";
 
 const App = () => {
@@ -37,14 +35,13 @@ const App = () => {
   //   return true;
   // };
 
-  console.log(context);
   return (
     <div>
       <AddNote add={context.actions.addNote} />
       <NoteList
         notes={context}
         delete={context.actions.deleteNote}
-        find={context.actions.findId}
+        handle={context.actions.handleClick}
       />
     </div>
   );

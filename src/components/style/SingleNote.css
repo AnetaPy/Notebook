@@ -10,7 +10,7 @@
 }
 
 .singleNote header {
-  background-color: rgb(210, 238, 218);
+  background-color: rgb(213, 235, 220);
 }
 
 .singleNote header h1 {
@@ -45,7 +45,7 @@
   position: relative;
   padding: 20px;
   margin: 20px auto;
-  background-color: rgb(210, 238, 218);
+  background-color: rgb(213, 235, 220);
   width: 900px;
   min-height: 250px;
   font-size: 15px;

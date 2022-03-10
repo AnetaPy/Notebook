@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import "./AddNote.css";
-import ReactMarkdown from "react-markdown";
+import "./style/AddNote.css";
 
 class AddNote extends Component {
   state = {

@@ -23,8 +23,8 @@ ReactDOM.render(
     <BrowserRouter>
       <ContextWrapper>
         <Routes>
-          <Route path="/" element={<Router />} />
           <Route path="/note" element={<SingleNote />} />
+          <Route path="/" element={<Router />} />
         </Routes>
       </ContextWrapper>
     </BrowserRouter>

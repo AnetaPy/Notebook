@@ -1,34 +1,38 @@
 import React, { useContext } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import { AppContext } from "./context/Context";
-import "./SingleNote.css";
+import "./style/SingleNote.css";
 
 const SingleNote = () => {
   const context = useContext(AppContext);
-  console.log();
-  console.log(context);
-  // console.log(context.store.singleNoteId);
-  // console.log(this.state.notes);
+  const id = context.store.sNID;
+
+  const leadingZero = (value) => (value < 10 && value > -1 ? "0" : "") + value;
+  const actualDate = `${leadingZero(
+    new Date(context.store.sNDate).getMonth() + 1
+  )}/${leadingZero(new Date(context.store.sNDate).getDate())}/${new Date(
+    context.store.sNDate
+  ).getFullYear()}`;
+
   return (
     <div className="singleNote">
       <header>
         <h1>Notes App</h1>
       </header>
-      {/* <p>{context.state.singleNoteText}</p>
-      <p>{context.state.singleNoteDate}</p> */}
-
       <NavLink to="/">
         <button className="back">Go back</button>
       </NavLink>
       <NavLink to="/">
-        <button className="delete">Delete note</button>
+        <button
+          className="delete"
+          onClick={() => context.actions.deleteNote(id)}
+        >
+          Delete note
+        </button>
       </NavLink>
       <div className="contentSingleNote">
-        {" "}
-        <p className="text">
-          texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
-        </p>
-        <p className="date">10/03/2022</p>
+        <p className="text">{context.store.sNText}</p>
+        <p className="date">{actualDate}</p>
       </div>
     </div>
   );
