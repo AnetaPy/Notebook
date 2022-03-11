@@ -3,6 +3,7 @@ import AddNote from "./AddNote";
 import NoteList from "./NoteList";
 import { AppContext } from "./context/Context";
 import { v4 as uuidv4 } from "uuid";
+import "./style/App.css";
 
 const App = () => {
   const context = useContext(AppContext);
@@ -43,6 +44,10 @@ const App = () => {
 
   return (
     <div>
+      <header>
+        <h1>Note App</h1>
+      </header>
+
       <AddNote add={addNote} />
       <NoteList notes={context} delete={deleteNote} handle={handleClick} />
     </div>

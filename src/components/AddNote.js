@@ -29,13 +29,13 @@ class AddNote extends Component {
     return (
       <div className="form">
         <h2>Note</h2>
+
         <textarea
           type="text"
           placeholder="Note text"
           value={this.state.text}
           onChange={this.handleText}
         />
-        {/* <ReactMarkdown>*React-Markdown* is **Awesome**</ReactMarkdown> */}
         <button onClick={this.cleanForm}>Add note</button>
       </div>
     );
