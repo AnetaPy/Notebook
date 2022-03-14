@@ -2,7 +2,7 @@
 
 Notebook allows you to save the note with actual date. You can also open note in new site and delete it.
 
-[Check my demo here.](https://anetapy.github.io/Notebook/)
+[Check my demo here.](https://anetapy.github.io/notebook/)
 
 ## Technologies
 
