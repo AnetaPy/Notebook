@@ -15,7 +15,7 @@ function Router() {
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <ContextWrapper>
         <Routes>
           <Route path="/note" element={<SingleNote />} />
