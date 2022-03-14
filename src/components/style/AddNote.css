@@ -2,28 +2,29 @@
   font-family: Arial, sans-serif;
 }
 
-.form {
+.addNote {
   background-color: rgb(229, 243, 233);
 }
 
-.form h2 {
+.addNote h2 {
   padding: 20px 20px 20px calc((100vw - 900px) / 2);
   font-weight: normal;
   font-size: 20px;
+  color: rgb(27, 51, 21);
 }
-.form textarea {
+.addNote textarea {
   display: block;
-  padding: 10px;
   margin: 0 auto;
+  padding: 10px;
   height: 150px;
   width: 900px;
   font-size: 15px;
   border: none;
 }
-.form button {
-  margin: 20px auto 0;
-  padding: 10px 15px;
+.addNote button {
   display: block;
+  margin: 25px auto 0;
+  padding: 12px 20px;
   font-size: 14px;
   color: white;
   background-color: rgb(94, 148, 127);

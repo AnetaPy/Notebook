@@ -5,9 +5,11 @@
 }
 
 .singleNote {
-  height: 600px;
+  min-height: 100vh;
   background-color: rgb(229, 243, 233);
 }
+
+/* Header */
 
 .singleNote header {
   background-color: rgb(213, 235, 220);
@@ -15,53 +17,50 @@
 
 .singleNote header h1 {
   padding: 15px;
+  height: 50px;
   font-weight: normal;
   font-family: Arial;
-  height: 50px;
   font-size: 20px;
 }
 
-.singleNote a button {
-  margin: 30px 0 20px 0;
-  height: 40px;
-  padding: 10px 20px;
+/* Buttons */
+
+.singleNote .buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0 auto;
+  width: 900px;
+}
+
+.singleNote .buttons a button {
+  margin: 30px 20px;
+  padding: 12px 20px;
+  background-color: rgb(94, 148, 127);
   font-size: 14px;
   color: white;
-  background-color: rgb(94, 148, 127);
   border: none;
   border-radius: 3px;
   cursor: pointer;
 }
 
-.singleNote a button.back {
-  margin-left: calc(((100vw - 900px) / 2) + 30px);
-}
-
-.singleNote a button.delete {
-  margin-left: calc(900px - 30px - 92px - 150px);
-}
+/* Content */
 
 .singleNote .contentSingleNote {
-  position: relative;
-  padding: 20px;
-  margin: 20px auto;
-  background-color: rgb(213, 235, 220);
-  width: 900px;
-  min-height: 250px;
-  font-size: 15px;
   display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin: 0px auto;
+  padding: 20px;
+  width: 900px;
+  min-height: 120px;
+  background-color: rgb(213, 235, 220);
+  font-size: 15px;
 }
 
 .singleNote .contentSingleNote .text {
-  display: block;
+  padding-bottom: 20px;
   width: 860px;
   word-wrap: break-word;
-}
-
-.singleNote .contentSingleNote .date {
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
 }

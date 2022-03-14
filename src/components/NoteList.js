@@ -12,13 +12,12 @@ const NoteList = (props) => {
       handle={props.handle}
     />
   ));
+
   return (
-    <>
-      <div className="noteList">
-        <h2>Lates notes</h2>
-        {notes}
-      </div>
-    </>
+    <div className="noteList">
+      <h1 className="header">Latest notes</h1>
+      {notes}
+    </div>
   );
 };
 

@@ -1,27 +1,24 @@
 import React, { useContext } from "react";
+import { AppContext } from "./Context";
+import { v4 as uuidv4 } from "uuid";
 import AddNote from "./AddNote";
 import NoteList from "./NoteList";
-import { AppContext } from "./context/Context";
-import { v4 as uuidv4 } from "uuid";
 import "./style/App.css";
 
 const App = () => {
   const context = useContext(AppContext);
-  let counter = uuidv4();
+  let noteId = uuidv4();
 
   const addNote = (text, date) => {
     if (text === "") return alert("Enter the content.");
-    console.log(counter);
     const notes = [...context.state.notes];
     const note = {
-      id: counter,
+      id: noteId,
       text,
       date,
     };
-    console.log(note);
     notes.push(note);
     context.setState({ notes });
-    console.log(counter);
     return true;
   };
 
@@ -33,7 +30,7 @@ const App = () => {
     });
   };
 
-  const handleClick = (id) => {
+  const handleSingleNote = (id) => {
     const note = context.state.notes.filter((note) => note.id === id);
     context.setStore({
       noteId: note[0].id,
@@ -43,13 +40,12 @@ const App = () => {
   };
 
   return (
-    <div>
+    <div className="containerApp">
       <header>
         <h1>Note App</h1>
       </header>
-
       <AddNote add={addNote} />
-      <NoteList notes={context} delete={deleteNote} handle={handleClick} />
+      <NoteList notes={context} delete={deleteNote} handle={handleSingleNote} />
     </div>
   );
 };

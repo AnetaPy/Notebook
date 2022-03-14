@@ -1,9 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 import App from "./components/App";
 import SingleNote from "./components/SingleNote";
-import { Routes, Route, BrowserRouter } from "react-router-dom";
-import ContextWrapper from "./components/context/Context.js";
+import ContextWrapper from "./components/Context.js";
 
 function Router() {
   return (

@@ -16,7 +16,6 @@ class AddNote extends Component {
 
   cleanForm = () => {
     const { text, date } = this.state;
-
     const add = this.props.add(text, date);
     if (add) {
       this.setState({
@@ -27,9 +26,8 @@ class AddNote extends Component {
 
   render() {
     return (
-      <div className="form">
+      <div className="addNote">
         <h2>Note</h2>
-
         <textarea
           type="text"
           placeholder="Note text"
