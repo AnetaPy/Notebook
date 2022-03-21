@@ -1,6 +1,6 @@
 # Notebook
 
-Notebook allows you to save the note with actual date. You can also open note in new site and delete it.
+Notebook allows you to save the note with actual date. You can also open note in new site and delete it. Notes can be written in markdown format.
 
 [Check my demo here.](https://anetapy.github.io/notebook/)
 
