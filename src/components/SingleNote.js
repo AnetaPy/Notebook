@@ -1,19 +1,13 @@
 import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
-import { AppContext } from "./Context";
+import { AppContext } from "./context/Context";
 import ReactMarkdown from "react-markdown";
 import "./style/SingleNote.css";
 
-const SingleNote = () => {
+const SingleNote = (props) => {
   const context = useContext(AppContext);
   const markdownText = <ReactMarkdown>{context.store.noteText}</ReactMarkdown>;
-  const id = context.store.noteId;
-  const leadingZero = (value) => (value < 10 && value > -1 ? "0" : "") + value;
-  const actualDate = `${leadingZero(
-    new Date(context.store.noteDate).getMonth() + 1
-  )}/${leadingZero(new Date(context.store.noteDate).getDate())}/${new Date(
-    context.store.noteDate
-  ).getFullYear()}`;
+  const actualDate = new Date(context.store.noteDate).toLocaleDateString();
 
   const deleteNote = (id) => {
     let notes = [...context.state.notes];
@@ -33,7 +27,10 @@ const SingleNote = () => {
           <button className="back">Go back</button>
         </NavLink>
         <NavLink to="/">
-          <button className="delete" onClick={() => deleteNote(id)}>
+          <button
+            className="delete"
+            onClick={() => deleteNote(context.store.noteId)}
+          >
             Delete note
           </button>
         </NavLink>

@@ -1,43 +1,41 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import "./style/AddNote.css";
 
-class AddNote extends Component {
-  state = {
+const AddNote = (props) => {
+  const [state, setState] = useState({
     text: "",
     date: null,
-  };
+  });
 
-  handleText = (e) => {
-    this.setState({
+  const handleText = (e) => {
+    setState({
       text: e.target.value,
       date: new Date().getTime(),
     });
   };
 
-  cleanForm = () => {
-    const { text, date } = this.state;
-    const add = this.props.add(text, date);
+  const cleanForm = () => {
+    const { text, date } = state;
+    const add = props.add(text, date);
     if (add) {
-      this.setState({
+      setState({
         text: "",
       });
     }
   };
 
-  render() {
-    return (
-      <div className="addNote">
-        <h2>Note</h2>
-        <textarea
-          type="text"
-          placeholder="Note text"
-          value={this.state.text}
-          onChange={this.handleText}
-        />
-        <button onClick={this.cleanForm}>Add note</button>
-      </div>
-    );
-  }
-}
+  return (
+    <div className="addNote">
+      <h2>Note</h2>
+      <textarea
+        type="text"
+        placeholder="Note text"
+        value={state.text}
+        onChange={handleText}
+      />
+      <button onClick={cleanForm}>Add note</button>
+    </div>
+  );
+};
 
 export default AddNote;

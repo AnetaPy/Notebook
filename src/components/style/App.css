@@ -3,13 +3,18 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+:root {
+  --main-color: rgb(229, 243, 233);
+  --background-color-header: rgb(213, 235, 220);
+}
+
 .containerApp {
-  padding-bottom: 10px;
   min-height: 100vh;
-  background-color: rgb(229, 243, 233);
+  background-color: var(----main-color);
 }
 .containerApp header {
-  background-color: rgb(213, 235, 220);
+  background-color: var(--background-color-header);
 }
 
 .containerApp header h1 {

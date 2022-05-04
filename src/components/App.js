@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { AppContext } from "./Context";
+import { AppContext } from "./context/Context";
 import { v4 as uuidv4 } from "uuid";
 import AddNote from "./AddNote";
 import NoteList from "./NoteList";
@@ -23,11 +23,12 @@ const App = () => {
   };
 
   const deleteNote = (id) => {
-    let notes = [...context.state.notes];
-    notes = notes.filter((note) => note.id !== id);
-    context.setState({
-      notes,
-    });
+    if (id) {
+      const notes = [...context.state.notes].filter((note) => note.id !== id);
+      context.setState({
+        notes,
+      });
+    }
   };
 
   const handleSingleNote = (id) => {

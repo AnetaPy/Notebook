@@ -4,15 +4,22 @@
   box-sizing: border-box;
 }
 
+:root {
+  --main-color: rgb(229, 243, 233);
+  --background-color-header: rgb(213, 235, 220);
+  --background-color-button: rgb(94, 148, 127);
+  --font-color: rgb(65, 71, 64);
+}
+
 .singleNote {
   min-height: 100vh;
-  background-color: rgb(229, 243, 233);
+  background-color: var(--main-color);
 }
 
 /* Header */
 
 .singleNote header {
-  background-color: rgb(213, 235, 220);
+  background-color: var(--background-color-header);
 }
 
 .singleNote header h1 {
@@ -30,13 +37,13 @@
   flex-direction: row;
   justify-content: space-between;
   margin: 0 auto;
-  width: 900px;
+  width: 60vw;
 }
 
 .singleNote .buttons a button {
   margin: 30px 20px;
   padding: 12px 20px;
-  background-color: rgb(94, 148, 127);
+  background-color: var(--background-color-button);
   font-size: 14px;
   color: white;
   border: none;
@@ -53,14 +60,56 @@
   align-items: flex-end;
   margin: 0px auto;
   padding: 20px;
-  width: 900px;
+  width: 60vw;
   min-height: 120px;
-  background-color: rgb(213, 235, 220);
+  background-color: var(--background-color-header);
   font-size: 15px;
 }
 
 .singleNote .contentSingleNote .text {
   padding-bottom: 20px;
-  width: 860px;
+  width: 56vw;
   word-wrap: break-word;
+}
+
+.singleNote .contentSingleNote .text p {
+  line-height: 20px;
+}
+
+@media (max-width: 1024px) {
+  .singleNote .buttons {
+    width: 80vw;
+  }
+
+  .singleNote .contentSingleNote {
+    width: 80vw;
+  }
+
+  .singleNote .contentSingleNote .text {
+    width: 75vw;
+  }
+}
+
+@media (max-width: 425px) {
+  .singleNote .buttons {
+    width: 90vw;
+  }
+
+  .singleNote .contentSingleNote {
+    width: 90vw;
+  }
+
+  .singleNote .contentSingleNote .text {
+    width: 80vw;
+  }
+}
+
+@media (max-width: 375px) {
+  .singleNote .buttons a button {
+    padding: 10px 18px;
+  }
+
+  .singleNote .contentSingleNote {
+    font-size: 14px;
+  }
 }
