@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./style/AddNote.css";
 
-const AddNote = (props) => {
+export const AddNote = (props) => {
   const [state, setState] = useState({
     text: "",
     date: null,
@@ -37,5 +37,3 @@ const AddNote = (props) => {
     </div>
   );
 };
-
-export default AddNote;

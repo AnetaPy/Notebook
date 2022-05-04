@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 
-const Note = (props) => {
+export const Note = (props) => {
   const { id, text, date } = props.note;
   const actualDate = new Date(date).toLocaleDateString();
   const markdownText = <ReactMarkdown>{text}</ReactMarkdown>;
@@ -23,5 +23,3 @@ const Note = (props) => {
     </div>
   );
 };
-
-export default Note;

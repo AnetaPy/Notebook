@@ -1,16 +1,16 @@
 import React, { useContext } from "react";
 import { AppContext } from "./context/Context";
 import { v4 as uuidv4 } from "uuid";
-import AddNote from "./AddNote";
-import NoteList from "./NoteList";
+import { AddNote } from "./AddNote";
+import { NoteList } from "./NoteList";
 import "./style/App.css";
 
-const App = () => {
+export const App = () => {
   const context = useContext(AppContext);
   let noteId = uuidv4();
 
   const addNote = (text, date) => {
-    if (text === "") return alert("Enter the content.");
+    if (text.length < 2) return alert("Enter the content.");
     const notes = [...context.state.notes];
     const note = {
       id: noteId,
@@ -50,5 +50,3 @@ const App = () => {
     </div>
   );
 };
-
-export default App;

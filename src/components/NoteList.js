@@ -1,8 +1,8 @@
 import React from "react";
-import Note from "./Note";
+import { Note } from "./Note";
 import "./style/NoteList.css";
 
-const NoteList = (props) => {
+export const NoteList = (props) => {
   const sortedNotes = props.notes.state.notes.sort((a, b) => b.date - a.date);
   const notes = sortedNotes.map((note) => (
     <Note
@@ -20,5 +20,3 @@ const NoteList = (props) => {
     </div>
   );
 };
-
-export default NoteList;

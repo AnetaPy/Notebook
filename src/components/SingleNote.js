@@ -4,14 +4,13 @@ import { AppContext } from "./context/Context";
 import ReactMarkdown from "react-markdown";
 import "./style/SingleNote.css";
 
-const SingleNote = (props) => {
+export const SingleNote = (props) => {
   const context = useContext(AppContext);
   const markdownText = <ReactMarkdown>{context.store.noteText}</ReactMarkdown>;
   const actualDate = new Date(context.store.noteDate).toLocaleDateString();
 
   const deleteNote = (id) => {
-    let notes = [...context.state.notes];
-    notes = notes.filter((note) => note.id !== id);
+    const notes = [...context.state.notes].filter((note) => note.id !== id);
     context.setState({
       notes,
     });
@@ -42,5 +41,3 @@ const SingleNote = (props) => {
     </div>
   );
 };
-
-export default SingleNote;
